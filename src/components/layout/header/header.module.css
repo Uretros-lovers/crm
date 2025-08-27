@@ -1,0 +1,22 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 29px 24px;
+    background-color: var(--gray);
+    border-bottom: 1px solid var(--gray3);
+    & nav {
+        display: flex;
+        flex-direction: row;
+        gap: 14px;
+        justify-content: start;
+        align-items: center;
+        font-weight: 600;
+    }
+    & .header_right {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: stretch;
+    }
+}

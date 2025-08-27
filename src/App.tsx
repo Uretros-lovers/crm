@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./App.css";
 import Layout from "./components/layout/Layout";
 import Main from "./pages/Main";
 import Projects from "./pages/Projects";
+import Notification from "./pages/Notification";
 
 function App() {
     return (
@@ -12,6 +12,7 @@ function App() {
                 <Route element={<Layout />}>
                     <Route index element={<Main />} />
                     <Route path="projects" element={<Projects />} />
+                    <Route path="notification" element={<Notification />} />
                 </Route>
             </Routes>
         </BrowserRouter>

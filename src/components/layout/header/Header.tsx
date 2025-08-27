@@ -1,6 +1,13 @@
+import React from "react";
+import styles from "./header.module.css";
+import Arrow from "@assets/arrow.svg?react";
+import { NavLink } from "react-router-dom";
+import ToggleTheme from "../../../features/theme/ToggleTheme";
+import NotificationAlert from "../../ui/notificationAlert/NotificationAlert";
+
 type Crumb = {
     label: string;
-    href?: string;
+    href: string;
 };
 
 const Header = () => {
@@ -10,22 +17,23 @@ const Header = () => {
     ];
 
     return (
-        <header>
-            <a href="">logo</a>
+        <header className={styles.header}>
             <nav>
-                <ul>
-                    {breadcrumbs.map((crumb, i) => (
-                        <li key={i}>
-                            {crumb.href ? (
-                                <a href={crumb.href}>{crumb.label}</a>
-                            ) : (
-                                <p>жопа?</p>
-                            )}
-                            {i < breadcrumbs.length - 1 && <span> {">"} </span>}
-                        </li>
-                    ))}
-                </ul>
+                {breadcrumbs.map((crumb, i) => (
+                    <React.Fragment key={i}>
+                        <NavLink to={crumb.href}>{crumb.label}</NavLink>
+                        {i < breadcrumbs.length - 1 && (
+                            <span>
+                                <Arrow />
+                            </span>
+                        )}
+                    </React.Fragment>
+                ))}
             </nav>
+            <div className={styles.header_right}>
+                <ToggleTheme />
+                <NotificationAlert />
+            </div>
         </header>
     );
 };

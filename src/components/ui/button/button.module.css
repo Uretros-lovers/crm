@@ -1,0 +1,21 @@
+.button {
+    padding: 6px;
+    border-radius: var(--bradBtn);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    background-color: var(--lightGray);
+
+    min-width: 36px;
+    min-height: 34px;
+    & svg {
+        stroke: var(--gray2) !important;
+    }
+
+    &.accent {
+        background-color: var(--accent1);
+        & svg {
+            stroke: var(--white) !important;
+        }
+    }
+}
