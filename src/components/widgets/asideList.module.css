@@ -1,0 +1,28 @@
+.asideList{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  & .logoLink{
+    max-width: 100px;
+  }
+  & .dropdown{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    color: #303030;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  & .listItem{
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: #5F6166;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 12px;
+    & .icon{
+      max-width: 16px;
+    }
+  }
+}
