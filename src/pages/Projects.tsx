@@ -1,3 +1,3 @@
 export default function Projects() {
-    return <div>Projects</div>;
+    return <h1>Govno po lopostyam</h1>;
 }

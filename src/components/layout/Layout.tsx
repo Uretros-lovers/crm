@@ -6,10 +6,10 @@ export default function Layout() {
     return (
         <>
             <Header />
-            <Aside/>
-            <section>
+            <Aside />
+            <main>
                 <Outlet />
-            </section>
+            </main>
         </>
     );
 }

@@ -12,6 +12,10 @@ header {
         justify-content: start;
         align-items: center;
         font-weight: 600;
+        & a {
+            font-size: 14px;
+            font-weight: 600;
+        }
     }
     & .header_right {
         display: flex;

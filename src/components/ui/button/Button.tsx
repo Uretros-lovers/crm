@@ -1,23 +1,16 @@
 import cn from "classnames";
 import styles from "./button.module.css";
 import { NavLink } from "react-router-dom";
-import React from "react";
+import { ReactNode } from "react";
 
-type Children = {
-    text?: string;
-    svg?: React.ElementType;
+type ButtonProps = {
     type?: string;
     onClick?: () => void;
     link?: string;
+    children?: ReactNode;
 };
 
-export default function Button({
-    svg: Svg,
-    text,
-    type,
-    onClick,
-    link,
-}: Children) {
+export default function Button({ type, onClick, link, children }: ButtonProps) {
     return (
         <>
             {!link ? (
@@ -25,14 +18,14 @@ export default function Button({
                     onClick={onClick}
                     className={cn(styles.button, type && styles[type])}
                 >
-                    {Svg ? <Svg /> : text}
+                    {children}
                 </button>
             ) : (
                 <NavLink
                     to={`${link}`}
                     className={cn(styles.button, type && styles[type])}
                 >
-                    {Svg ? <Svg /> : text}
+                    {children}
                 </NavLink>
             )}
         </>

@@ -8,5 +8,6 @@
 
     & > * {
         flex: 1 1 50%;
+        border: none !important;
     }
 }

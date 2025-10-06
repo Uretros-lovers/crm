@@ -1,31 +1,26 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "ESNext"],
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "jsx": "react-jsx",
-    "strict": true,
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["DOM", "ESNext"],
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "jsx": "react-jsx",
+        "strict": true,
 
-    "baseUrl": ".",
-    "paths": {
-      "@assets":    ["src/assets"],    // <– добавлено
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@/*": ["src/*"]
+        "baseUrl": ".",
+        "paths": {
+            "@": ["src"],
+            "@/*": ["src/*"],
+            "@assets": ["src/assets"],
+            "@assets/*": ["src/assets/*"],
+            "@components": ["src/components"],
+            "@components/*": ["src/components/*"]
+        },
+
+        "types": ["vite-plugin-svgr/client", "vite/client"],
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true
     },
-
-    "types": ["vite-plugin-svgr/client"],
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
-  },
-  "include": [
-    "src",
-    "src/vite-env.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "build"
-  ]
+    "include": ["src", "src/vite-env.d.ts"],
+    "exclude": ["node_modules", "dist", "build"]
 }

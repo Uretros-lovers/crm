@@ -1,79 +1,84 @@
 // import { Logo, DownArrow } from "@assets";
-import React, {useState} from "react";
-import { Logo } from "@assets";      // остаётся логотип
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+import { Logo } from "@assets"; // остаётся логотип
 import styles from "./asideList.module.css";
 import DownArrow from "@assets/downArrow.svg?react";
-import TasksIcon  from "@assets/tasks.svg?react";
-import StarIcon  from "@assets/starIcon.svg?react";
-import Messages  from "@assets/messagesIcon.svg?react";
-import Trash  from "@assets/trashIcon.svg?react";
+import TasksIcon from "@assets/tasks.svg?react";
+import StarIcon from "@assets/starIcon.svg?react";
+import Messages from "@assets/messagesIcon.svg?react";
+import Trash from "@assets/trashIcon.svg?react";
 
 interface GeneralList {
-  id:number;
-  name:string;
-  svg:React.ElementType;
+    name: string;
+    svg: React.ElementType;
+    link: string;
 }
 
-const list:GeneralList[] = [
-  {
-    id: 1,
-    name: 'My Tasks',
-    svg: TasksIcon,
-  },
-  {
-    id: 2,
-    name: 'Favorites',
-    svg: StarIcon,
-  }, {
-    id: 3,
-    name: 'DMessages',
-    svg: Messages,
-  }, {
-    id: 4,
-    name: 'Trash',
-    svg: Trash,
-  }
-]
+const list: GeneralList[] = [
+    {
+        name: "My Tasks",
+        svg: TasksIcon,
+        link: "mytask",
+    },
+    {
+        name: "Favorites",
+        svg: StarIcon,
+        link: "favorites",
+    },
+    {
+        name: "DMessages",
+        svg: Messages,
+        link: "dm",
+    },
+    {
+        name: "Trash",
+        svg: Trash,
+        link: "trash",
+    },
+];
 
 function AsideList() {
-  const [open,setOpen] = useState(false);
-  const menuDropdown = () =>{setOpen(v=>!v)}
-
+    const [open, setOpen] = useState(false);
+    const menuDropdown = () => {
+        setOpen((v) => !v);
+    };
 
     return (
-      <div className={styles.asideList}>
-          <div>
-              <a
-                href="/"
-                className={styles.logoLink}
-              >
-                  <Logo className={styles.logo} />
-              </a>
-
-          </div>
-          <div >
-              <div  className={styles.dropdown}>
-               <div onClick={menuDropdown} className={styles.title}>
-                 General
-                 <div className={open?styles.arrow:styles.arrowOpen}>
-                   <DownArrow />
-                 </div>
-               </div>
-                <ul className={open?styles.listItemsActive:styles.listItems}>
-                  {list.map(({id,name,svg: Svg})=>{
-                    return (
-                      <li key={id} className={styles.listItem}>
-                        <a className={styles.link}>
-                          <Svg className={styles.icon}/>
-                          <div>{name}</div>
-                        </a>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-          </div>
-      </div>
+        <div className={styles.asideList}>
+            <div>
+                <NavLink to="/" className={styles.logoLink}>
+                    <Logo className={styles.logo} />
+                </NavLink>
+            </div>
+            <div>
+                <div className={styles.dropdown}>
+                    <div onClick={menuDropdown} className={styles.title}>
+                        General
+                        <div className={open ? styles.arrow : styles.arrowOpen}>
+                            <DownArrow />
+                        </div>
+                    </div>
+                    <ul
+                        className={
+                            open ? styles.listItemsActive : styles.listItems
+                        }
+                    >
+                        {list.map(({ name, link, svg: Svg }, i) => {
+                            return (
+                                <li key={i} className={styles.listItem}>
+                                    <NavLink to={link} className={styles.link}>
+                                        <Svg className={styles.icon} />
+                                        {name}
+                                    </NavLink>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </div>
+        </div>
     );
 }
 

@@ -1,9 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import styles from "./header.module.css";
 import Arrow from "@assets/arrow.svg?react";
-import { NavLink } from "react-router-dom";
-import ToggleTheme from "../../../features/theme/ToggleTheme";
-import NotificationAlert from "../../ui/notificationAlert/NotificationAlert";
+import ToggleTheme from "@/features/theme/ToggleTheme";
+import NotificationAlert from "@components/ui/notificationAlert/NotificationAlert";
+import Profile from "@/features/profile/ui/Profile";
 
 type Crumb = {
     label: string;
@@ -33,6 +35,7 @@ const Header = () => {
             <div className={styles.header_right}>
                 <ToggleTheme />
                 <NotificationAlert />
+                <Profile />
             </div>
         </header>
     );
