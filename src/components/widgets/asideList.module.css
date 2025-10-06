@@ -7,20 +7,51 @@
   }
   & .dropdown{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 12px 0;
     color: #303030;
     font-weight: 600;
     font-size: 14px;
+    & .title{
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      padding-bottom: 12px;
+    }
+    & .arrow{
+      transition: transform .2s ease;
+      transform: rotate(180deg);
+    }& .arrowOpen{
+      transition: transform .2s ease;
+    }
+  }
+  & .listItemsActive{
+       max-height: 0; overflow: hidden; transition: max-height .1s ease;
+  }& .listItems{
+    max-height: 600px;
   }
   & .listItem{
     display: flex;
     align-items: center;
+    justify-content: start;
     gap: 13px;
     color: #5F6166;
     font-size: 12px;
     font-weight: 600;
-    padding: 12px;
+    & .link{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 13px;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 8px;
+      padding: 12px;
+    }& .link:hover{
+    background-color: #E8F3FE;
+    color: #4593F9;
+    }
     & .icon{
       max-width: 16px;
     }

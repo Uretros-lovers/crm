@@ -14,6 +14,7 @@ export default function ToggleTheme() {
                 svg={Sun}
                 type={active ? "accent" : ""}
                 onClick={() => setActive(true)}
+
             />
             <Button
                 svg={Moon}
