@@ -2,9 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    & .logoLink {
-        max-width: 100px;
-    }
     & .dropdown {
         display: flex;
         flex-direction: column;
@@ -15,15 +12,30 @@
         & .title {
             display: flex;
             justify-content: space-between;
-            cursor: pointer;
             padding-bottom: 12px;
-        }
-        & .arrow {
-            transition: transform 0.2s ease;
-            transform: rotate(180deg);
-        }
-        & .arrowOpen {
-            transition: transform 0.2s ease;
+            & .icons{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                & .plus{
+                    transition: transform 0.2s ease;
+                    cursor: pointer;
+                }
+                & .plus:hover {
+                    & svg path {
+                        fill: var(--accent2);
+                    }
+                }
+                & .arrow {
+                    transition: transform 0.2s ease;
+                    transform: rotate(180deg);
+                    cursor: pointer;
+                }
+                & .arrowOpen {
+                    transition: transform 0.2s ease;
+                    cursor: pointer;
+                }
+            }
         }
     }
     & .listItemsActive {
@@ -51,6 +63,13 @@
         }
         & .link:hover {
             background-color: #e8f3fe;
+            & svg path {
+                stroke: var(--accent2);
+            }
+        }
+        & .activeLink {
+            background-color: #e8f3fe;
+            color: var(--accent2);
             & svg path {
                 stroke: var(--accent2);
             }

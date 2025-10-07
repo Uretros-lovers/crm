@@ -1,0 +1,6 @@
+.sidebar{
+    & .logoLink {
+        max-width: 100px;
+        padding-bottom: 12px;
+    }
+}

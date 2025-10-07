@@ -1,10 +1,10 @@
 import styles from "./aside.module.css";
-import AsideList from "../../widgets/AsideList";
+import Sidebar from "../../widgets/sidebar/Sidebar";
 
 function Aside() {
     return(
       <aside className={styles.aside}>
-        <AsideList />
+        <Sidebar />
       </aside>)
 }
 
