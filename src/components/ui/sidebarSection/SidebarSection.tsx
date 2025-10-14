@@ -3,19 +3,22 @@ import { NavLink } from "react-router-dom";
 import styles from "./sidebarSection.module.css";
 import DownArrow from "@assets/downArrow.svg?react";
 
-interface Props {
+interface SidebarSectionProps  {
     title?: string;
-    trailing?: React.ReactNode;
-    items: {
-        id: number;
-        label: string;
-        to: string;
-        svg?: React.ElementType;
-        colorDot?: string;
-    }[];
+    add?: React.ReactNode;
+    items: SidebarItem[];
+    defaultOpen?: boolean;
+}
+interface SidebarItem{
+    id: number;
+    label: string;
+    to: string;
+    iconLeft?: React.ElementType;
+    colorDot?: string;
+    group?:[];
 }
 
-function Sidebar({title,trailing,items}:Props) {
+function SidebarSection({title,add,items}:SidebarSectionProps ) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -25,18 +28,18 @@ function Sidebar({title,trailing,items}:Props) {
                     <div  className={styles.title}>
                         {title}
                         <div className={styles.icons}>
-                            <div className={styles.plus}>
-                                {trailing}
-                            </div>
-                            <div className={open ? styles.arrow : styles.arrowOpen}>
-                                <DownArrow onClick={()=>setOpen((v) => !v)}/>
-                            </div>
+                            {add && <button type='button' className={styles.plus}>
+                                {add}
+                            </button>}
+                            <button type='button' onClick={() => setOpen(v => !v)}  className={styles.arrow + (open ? " " + styles.open : "")}>
+                                <DownArrow />
+                            </button>
                         </div>
                     </div>
                     <ul
-                        className={open ? styles.listItemsActive : styles.listItems}
+                      className={open ? styles.listItemsActive : styles.listItems}
                     >
-                        {items.map(({id, label, to, svg: Svg, colorDot: ColorDot}) => {
+                        {items.map(({id, label, to, iconLeft: IconLeft, colorDot: ColorDot}) => {
                             return (
                                 <li key={id} className={styles.listItem}>
                                     <NavLink  to={to}
@@ -44,8 +47,11 @@ function Sidebar({title,trailing,items}:Props) {
                                                   isActive ? `${styles.link} ${styles.activeLink}` : styles.link
                                               }
                                               >
-                                        {Svg && <Svg className={styles.icon} />}
-                                        {ColorDot && <ColorDot />}
+                                        {IconLeft && <IconLeft className={styles.icon} />}
+                                        {ColorDot && <span
+                                          className={styles.dot}
+                                          style={{backgroundColor: ColorDot}}
+                                        />}
                                         {label}
                                     </NavLink>
                                 </li>
@@ -58,4 +64,4 @@ function Sidebar({title,trailing,items}:Props) {
     );
 }
 
-export default Sidebar;
+export default SidebarSection;

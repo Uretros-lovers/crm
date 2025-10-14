@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    position: relative;
     & .dropdown {
         display: flex;
         flex-direction: column;
@@ -27,13 +28,23 @@
                     }
                 }
                 & .arrow {
-                    transition: transform 0.2s ease;
-                    transform: rotate(180deg);
+                    min-width: 16px;
+                    min-height: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     cursor: pointer;
+                    & svg{
+                        width: 10px;
+                        height: 6px;
+                        transition: transform 0.2s ease;
+                        transform: rotate(0deg);
+                    }
                 }
-                & .arrowOpen {
-                    transition: transform 0.2s ease;
-                    cursor: pointer;
+                & .arrow.open {
+                    & svg{
+                        transform: rotate(180deg);
+                    }
                 }
             }
         }
@@ -58,17 +69,17 @@
             gap: 13px;
             cursor: pointer;
             width: 100%;
-            border-radius: 8px;
+            border-radius: var(--bradBtn);
             padding: 12px;
         }
         & .link:hover {
-            background-color: #e8f3fe;
+            background-color: var(--accent3);
             & svg path {
                 stroke: var(--accent2);
             }
         }
         & .activeLink {
-            background-color: #e8f3fe;
+            background-color: var(--accent3);
             color: var(--accent2);
             & svg path {
                 stroke: var(--accent2);

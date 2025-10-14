@@ -1,6 +1,6 @@
 .aside {
   border: 1px solid var(--gray3);
   border-radius: var(--bradBtn);
-  background-color: var(--lightGray);
+  background-color: var(--gray);
   padding: 22px 24px;
 }
