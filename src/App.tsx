@@ -5,7 +5,7 @@ import Main from "./pages/Main";
 import Projects from "./pages/Projects";
 import Notification from "./pages/Notification";
 import Mytask from "./pages/Mytask";
-import Favorites from "./pages/favorites";
+import Favorites from "./pages/Favorites";
 import DMessages from "./pages/DMessages";
 import Trash from "./pages/Trash";
 

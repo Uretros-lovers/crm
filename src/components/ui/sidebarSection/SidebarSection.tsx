@@ -10,7 +10,7 @@ interface SidebarSectionProps  {
     defaultOpen?: boolean;
 }
 interface SidebarItem{
-    id: number;
+    id: string | number;
     label: string;
     to: string;
     iconLeft?: React.ElementType;
