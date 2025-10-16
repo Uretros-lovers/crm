@@ -8,6 +8,7 @@ interface SidebarSectionProps  {
     add?: React.ReactNode;
     items: SidebarItem[];
     defaultOpen?: boolean;
+    onAdd?:()=>void;
 }
 interface SidebarItem{
     id: string | number;
@@ -18,7 +19,7 @@ interface SidebarItem{
     group?:[];
 }
 
-function SidebarSection({title,add,items}:SidebarSectionProps ) {
+function SidebarSection({title,add,items,onAdd}:SidebarSectionProps ) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -28,7 +29,7 @@ function SidebarSection({title,add,items}:SidebarSectionProps ) {
                     <div  className={styles.title}>
                         {title}
                         <div className={styles.icons}>
-                            {add && <button type='button' className={styles.plus}>
+                            {add && <button onClick={onAdd} type='button' className={styles.plus}>
                                 {add}
                             </button>}
                             <button type='button' onClick={() => setOpen(v => !v)}  className={styles.arrow + (open ? " " + styles.open : "")}>

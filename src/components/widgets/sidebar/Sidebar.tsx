@@ -48,12 +48,19 @@ const list: GeneralItem[] = [
 
 function Sidebar(){
     const [projects, setProjects] = useState<Projects[]>([]);
-
     useEffect(() => {
         fakeFetchProjects()
           .then((response) => setProjects(response))
     }, []);
-
+    const addProject = () =>{
+        const newProject: Projects = {
+            id:Date.now(),
+            label: `Project ${projects.length + 1}`,
+            to: `project-${projects.length + 1}`,
+            colorDot: "#000000",
+        };
+        setProjects(prev=>[...prev, newProject]);
+    }
 
     return (
         <>
@@ -63,7 +70,7 @@ function Sidebar(){
                 </NavLink>
             </div>
             <SidebarSection title='General' items={list}/>
-            <SidebarSection title='Projects' items={projects} add={<Plus/>}/>
+            <SidebarSection title='Projects' items={projects} add={<Plus/>} onAdd={addProject}/>
         </>
     )
 }
