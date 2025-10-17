@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Main from "./pages/Main";
 import Projects from "./pages/Projects";
-import Notification from "./pages/Notification";
+import Notification from "./pages/notification";
 import Mytask from "./pages/Mytask";
 import Favorites from "./pages/Favorites";
 import DMessages from "./pages/DMessages";

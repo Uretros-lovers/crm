@@ -11,8 +11,10 @@
     --gray: #f8f8f8;
     --gray2: #5f6166;
     --gray3: #eaeaea;
+    --gray4: #b5b5b5;
     --lightGray: #f3f3f3;
 
+    --brad_small: 4px;
     --brad: 24px;
     --bradBtn: 8px;
 }
@@ -33,23 +35,22 @@
     position: relative;
 }
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
     height: 5px;
 }
 *::-webkit-scrollbar-track {
-    background: var(--black);
+    background: var(--gray3);
 }
 *::-webkit-scrollbar-thumb {
-    background-color: var(--accent1);
+    border-radius: var(--brad);
+    background-color: var(--accent2);
 }
 
 html {
     position: relative;
-    overflow-x: hidden !important;
     scroll-behavior: smooth;
 }
 body {
-    overflow: hidden;
 }
 
 body,
@@ -59,9 +60,13 @@ html {
     font-size: 20px;
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--white);
     color: var(--black);
     text-align: left;
+
+    background-color: var(--gray3);
+    /* background-color: var(--white); */
+    overflow: hidden;
+    height: 100%;
 }
 html,
 body,
@@ -72,12 +77,15 @@ body,
 
 #root {
     display: grid;
+    gap: 1px;
+
     grid-template-areas:
         "aside header"
         "aside  main";
     grid-template-columns: 280px 4fr;
     grid-template-rows: auto 1fr;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 0;
 }
 
 #root > header {
@@ -88,7 +96,10 @@ body,
 }
 #root > main {
     grid-area: main;
-    padding: 16px;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
 }
 
 a {
@@ -189,7 +200,7 @@ a {
 section * {
     z-index: 1;
 }
-button{
+button {
     background: transparent;
 }
 

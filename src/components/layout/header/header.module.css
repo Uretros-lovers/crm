@@ -4,7 +4,6 @@ header {
     justify-content: space-between;
     padding: 29px 24px;
     background-color: var(--gray);
-    border-bottom: 1px solid var(--gray3);
     & nav {
         display: flex;
         flex-direction: row;
